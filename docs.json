@@ -91,7 +91,7 @@
   },
   "logo": {
     "light": "/images/黑.png",
-    "dark": "/images/黑.png",
+    "dark": "/images/白.png",
     "href": "https://www.yumiproxy.com?utm_campaign=mintlify&utm_medium=mintlify&utm_source=mintlify"
   },
   "navbar": {
