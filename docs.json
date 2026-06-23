@@ -1,11 +1,11 @@
 {
   "$schema": "https://mintlify.com/docs.json",
-  "theme": "sequoia",
+  "theme": "luma",
   "name": "YumiProxy",
   "colors": {
-    "primary": "#16A34A",
-    "light": "#07C983",
-    "dark": "#15803D"
+    "primary": "#3015a3",
+    "light": "#4106c9",
+    "dark": "#581480"
   },
   "favicon": "/favicon.svg",
   "navigation": {
@@ -97,8 +97,8 @@
   "navbar": {
     "links": [
       {
-        "label": "Support",
-        "href": "mailto:hi@mintlify.com"
+        "href": "https://www.yumiproxy.com?utm_campaign=mintlify&utm_medium=mintlify&utm_source=mintlify",
+        "label": "Visit YumiProxy"
       }
     ],
     "primary": {
@@ -124,5 +124,8 @@
       "telegram": "https://t.me/yumiproxy"
     }
   },
-  "description": "YumiProxy offers high‑speed, stable residential proxies with over 50 million real IPs, 99.9% success rate, 98.5% IP purity, coverage in 195+ countries and 2,500+ cities, and 99% country‑level location accuracy. Customizable solutions are available to meet all enterprise application scenarios and needs."
+  "description": "YumiProxy offers high‑speed, stable residential proxies with over 50 million real IPs, 99.9% success rate, 98.5% IP purity, coverage in 195+ countries and 2,500+ cities, and 99% country‑level location accuracy. Customizable solutions are available to meet all enterprise application scenarios and needs.",
+  "seo": {
+    "indexing": "all"
+  }
 }
