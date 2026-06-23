@@ -44,6 +44,15 @@
                 "pages": [
                   "userguide-overview"
                 ]
+              },
+              {
+                "group": "In-depth analysis of YumiProxy",
+                "pages": [
+                  "file",
+                  "untitled-page",
+                  "parameter",
+                  "yumi-proxy-how-to-recharge-on-the-official-website-wallet"
+                ]
               }
             ]
           },
@@ -76,7 +85,7 @@
                 "group": "YumiProxy深度解读",
                 "pages": [
                   "yumi-proxy",
-                  "untitled-page",
+                  "yumi-proxy-6",
                   "yumi-proxy-1",
                   "yumi-proxy-2",
                   "yumi-proxy-3",
