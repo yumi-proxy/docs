@@ -1,6 +1,6 @@
 {
   "$schema": "https://mintlify.com/docs.json",
-  "theme": "maple",
+  "theme": "palm",
   "name": "YumiProxy",
   "colors": {
     "primary": "#3015a3",
@@ -69,21 +69,18 @@
               {
                 "group": "概述",
                 "pages": [
-                  "file-1",
-                  {
-                    "group": "YumiProxy深度解读",
-                    "pages": [
-                      "yumi-proxy",
-                      "untitled-page",
-                      "yumi-proxy-1",
-                      "yumi-proxy-2",
-                      "yumi-proxy-3",
-                      {
-                        "group": "YumiProxy-静态住宅代理-参数提取",
-                        "pages": []
-                      }
-                    ]
-                  }
+                  "file-1"
+                ]
+              },
+              {
+                "group": "YumiProxy深度解读",
+                "pages": [
+                  "yumi-proxy",
+                  "untitled-page",
+                  "yumi-proxy-1",
+                  "yumi-proxy-2",
+                  "yumi-proxy-3",
+                  "yumi-proxy-4"
                 ]
               }
             ]
