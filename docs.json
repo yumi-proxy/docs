@@ -37,23 +37,23 @@
         "language": "en",
         "tabs": [
           {
-            "tab": "FAQS",
-            "groups": [
-              {
-                "group": "Overview",
-                "pages": [
-                  "faqs-overview"
-                ]
-              }
-            ]
-          },
-          {
             "tab": "User Guide",
             "groups": [
               {
                 "group": "Overview",
                 "pages": [
                   "faqs-overview-1"
+                ]
+              }
+            ]
+          },
+          {
+            "tab": "FAQS",
+            "groups": [
+              {
+                "group": "Overview",
+                "pages": [
+                  "faqs-overview"
                 ]
               }
             ]
@@ -64,23 +64,37 @@
         "language": "zh",
         "tabs": [
           {
+            "tab": "用户指南",
+            "groups": [
+              {
+                "group": "概述",
+                "pages": [
+                  "file-1",
+                  {
+                    "group": "YumiProxy深度解读",
+                    "pages": [
+                      "yumi-proxy",
+                      "untitled-page",
+                      "yumi-proxy-1",
+                      "yumi-proxy-2",
+                      "yumi-proxy-3",
+                      {
+                        "group": "YumiProxy-静态住宅代理-参数提取",
+                        "pages": []
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
             "tab": "常见问题",
             "groups": [
               {
                 "group": "概述",
                 "pages": [
                   "file"
-                ]
-              }
-            ]
-          },
-          {
-            "tab": "用户指南",
-            "groups": [
-              {
-                "group": "概述",
-                "pages": [
-                  "file-1"
                 ]
               }
             ]
