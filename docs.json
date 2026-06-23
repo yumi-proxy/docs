@@ -1,6 +1,6 @@
 {
   "$schema": "https://mintlify.com/docs.json",
-  "theme": "mint",
+  "theme": "sequoia",
   "name": "YumiProxy",
   "colors": {
     "primary": "#16A34A",
@@ -21,21 +21,30 @@
     "global": {
       "anchors": [
         {
-          "anchor": "Documentation",
-          "href": "https://mintlify.com/docs",
+          "anchor": "Price",
+          "href": "https://www.yumiproxy.com/pricing/residential",
           "icon": "book-open-cover"
         },
         {
           "anchor": "Blog",
-          "href": "https://mintlify.com/blog",
+          "href": "https://www.yumiproxy.com",
           "icon": "newspaper"
         }
       ]
-    }
+    },
+    "languages": [
+      {
+        "language": "cn"
+      },
+      {
+        "language": "zh"
+      }
+    ]
   },
   "logo": {
-    "light": "/logo/light.svg",
-    "dark": "/logo/dark.svg"
+    "light": "/images/白.png",
+    "dark": "/images/黑.png",
+    "href": "https://www.yumiproxy.com?utm_campaign=mintlify&utm_medium=mintlify&utm_source=mintlify"
   },
   "navbar": {
     "links": [
