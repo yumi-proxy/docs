@@ -34,10 +34,58 @@
     },
     "languages": [
       {
-        "language": "cn"
+        "language": "en",
+        "tabs": [
+          {
+            "tab": "FAQS",
+            "groups": [
+              {
+                "group": "Overview",
+                "pages": [
+                  "faqs-overview"
+                ]
+              }
+            ]
+          },
+          {
+            "tab": "User Guide",
+            "groups": [
+              {
+                "group": "Overview",
+                "pages": [
+                  "faqs-overview-1"
+                ]
+              }
+            ]
+          }
+        ]
       },
       {
-        "language": "zh"
+        "language": "zh",
+        "tabs": [
+          {
+            "tab": "常见问题",
+            "groups": [
+              {
+                "group": "概述",
+                "pages": [
+                  "file"
+                ]
+              }
+            ]
+          },
+          {
+            "tab": "用户指南",
+            "groups": [
+              {
+                "group": "概述",
+                "pages": [
+                  "file-1"
+                ]
+              }
+            ]
+          }
+        ]
       }
     ]
   },
