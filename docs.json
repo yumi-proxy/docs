@@ -1,11 +1,11 @@
 {
   "$schema": "https://mintlify.com/docs.json",
-  "theme": "maple",
+  "theme": "mint",
   "name": "YumiProxy",
   "colors": {
-    "primary": "#3015a3",
-    "light": "#4106c9",
-    "dark": "#581480"
+    "primary": "#c1d61f",
+    "light": "#cbd7bd",
+    "dark": "#198014"
   },
   "favicon": "/favicon.svg",
   "navigation": {
@@ -156,6 +156,10 @@
     "indexing": "all"
   },
   "background": {
-    "decoration": "gradient"
+    "decoration": "gradient",
+    "color": {
+      "light": "#1ae751",
+      "dark": "#e2d6d2"
+    }
   }
 }
