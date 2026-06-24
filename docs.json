@@ -4,8 +4,7 @@
   "name": "YumiProxy",
   "colors": {
     "primary": "#c1d61f",
-    "light": "#cbd7bd",
-    "dark": "#198014"
+    "light": "#cbd7bd"
   },
   "favicon": "/favicon.svg",
   "navigation": {
@@ -158,8 +157,8 @@
   "background": {
     "decoration": "gradient",
     "color": {
-      "light": "#1ae751",
-      "dark": "#e2d6d2"
+      "light": "#FFFFFF",
+      "dark": "#000000"
     }
   }
 }
