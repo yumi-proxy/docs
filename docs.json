@@ -105,6 +105,19 @@
                 "pages": [
                   "faqs-overview-zh"
                 ]
+              },
+              {
+                "group": "产品问题",
+                "pages": [
+                  "1",
+                  "2",
+                  "3",
+                  "4-ip-ip"
+                ]
+              },
+              {
+                "group": "使用问题",
+                "pages": []
               }
             ]
           }
