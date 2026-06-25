@@ -48,7 +48,6 @@
                 "group": "In-depth analysis of YumiProxy",
                 "pages": [
                   "file",
-                  "untitled-page",
                   "yumi-proxy-residential-proxy-parameter",
                   "parameter",
                   "yumi-proxy-unlimited-residential-proxies-port-parameter",
@@ -65,6 +64,53 @@
                 "group": "Overview",
                 "pages": [
                   "faqs-overview"
+                ]
+              },
+              {
+                "group": "Product Issues",
+                "pages": [
+                  "1-how-to-choose-the-appropriate-product-package",
+                  "2-what-is-the-difference-between-dynamic-proxy-and-static-proxy",
+                  "untitled-page",
+                  "4-in-sticky-ip-what-does-change-ip-in-advance-mean",
+                  "5-how-to-check-whether-an-ip-is-connectable",
+                  "6-which-protocols-does-yumi-proxy-support",
+                  "7-how-many-extraction-methods-does-yumi-proxy-offer",
+                  {
+                    "group": "Residential Proxy",
+                    "pages": [
+                      "1-what-is-the-residential-proxy-package",
+                      "2-what-is-the-bandwidth-of-yumi-proxy-residential-proxy",
+                      "3-how-is-the-online-duration-of-dynamic-ips-for-residential-proxy-determined"
+                    ]
+                  },
+                  {
+                    "group": "Unlimited Proxy",
+                    "pages": [
+                      "1-what-is-the-pool-size-of-the-unlimited-proxy-and-what-are-the-main-country-distributions",
+                      "2-can-i-select-a-country-for-the-unlimited-package",
+                      "3-unable-to-connect-when-using-api-extraction-parameters-for-unlimited-proxy"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "Usage Issues",
+                "pages": [
+                  "1-can-yumi-proxy-be-connected-directly",
+                  "2-in-api-extraction-what-should-be-done-if-the-proxy-becomes-unusable-due-to-excessively-frequent-sticky-ip-extraction"
+                ]
+              },
+              {
+                "group": "Payment Issues",
+                "pages": [
+                  "1-what-payment-methods-does-yumi-proxy-support"
+                ]
+              },
+              {
+                "group": "Other Issues",
+                "pages": [
+                  "1-after-purchase-third-party-website-detection-shows-inaccurate-static-location"
                 ]
               }
             ]
