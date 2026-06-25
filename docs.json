@@ -115,12 +115,33 @@
                   "4-ip-ip",
                   "5-ip",
                   "6-yumi-proxy",
-                  "7-yumi-proxy"
+                  "7-yumi-proxy",
+                  {
+                    "group": "住宅代理",
+                    "pages": [
+                      "1-1",
+                      "2-yumi-proxy",
+                      "3-ip"
+                    ]
+                  },
+                  {
+                    "group": "不限量代理",
+                    "pages": [
+                      "1-2",
+                      "2-1",
+                      "3-api"
+                    ]
+                  }
                 ]
               },
               {
                 "group": "使用问题",
-                "pages": []
+                "pages": [
+                  "1-yumi-proxy",
+                  "2-2",
+                  "3-api-ip",
+                  "4"
+                ]
               }
             ]
           }
