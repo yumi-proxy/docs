@@ -48,6 +48,7 @@
                 "group": "In-depth analysis of YumiProxy",
                 "pages": [
                   "file",
+                  "untitled-page",
                   "yumi-proxy-residential-proxy-parameter",
                   "parameter",
                   "yumi-proxy-unlimited-residential-proxies-port-parameter",
@@ -71,7 +72,7 @@
                 "pages": [
                   "1-how-to-choose-the-appropriate-product-package",
                   "2-what-is-the-difference-between-dynamic-proxy-and-static-proxy",
-                  "untitled-page",
+                  "3-what-is-the-difference-between-rotation-session-and-sticky-session",
                   "4-in-sticky-ip-what-does-change-ip-in-advance-mean",
                   "5-how-to-check-whether-an-ip-is-connectable",
                   "6-which-protocols-does-yumi-proxy-support",

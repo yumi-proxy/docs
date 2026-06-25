@@ -1,3 +1,7 @@
 ---
 title: "2. In API extraction, what should be done if the proxy becomes unusable due to excessively frequent sticky IP extraction?"
 ---
+
+- Frequent sticky IP extraction will trigger the service provider's rate limiting.
+- If your normal business requires high‑frequency IP changes (e.g., for crawling), you should use the dynamic rotation IP mode (which automatically changes IP with each request). Sticky IP is suitable for scenarios that require maintaining login status or continuous sessions, and does not require frequent extraction.
+- Solution: Wait for one minute and then retry.
