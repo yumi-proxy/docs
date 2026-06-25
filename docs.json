@@ -138,7 +138,6 @@
                 "group": "使用问题",
                 "pages": [
                   "1-yumi-proxy",
-                  "2-2",
                   "3-api-ip"
                 ]
               },
@@ -146,6 +145,12 @@
                 "group": "付款问题",
                 "pages": [
                   "1-yumi-proxy-1"
+                ]
+              },
+              {
+                "group": "其他问题",
+                "pages": [
+                  "2-2"
                 ]
               }
             ]
