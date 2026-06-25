@@ -143,7 +143,7 @@
     "primary": {
       "type": "button",
       "label": "Dashboard",
-      "href": "https://app.mintlify.com"
+      "href": "https://dash.yumiproxy.com/overview"
     }
   },
   "contextual": {
