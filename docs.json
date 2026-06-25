@@ -176,5 +176,8 @@
       "light": "#FFFFFF",
       "dark": "#000000"
     }
+  },
+  "interaction": {
+    "drilldown": true
   }
 }
