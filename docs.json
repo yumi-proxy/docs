@@ -256,5 +256,9 @@
   },
   "interaction": {
     "drilldown": true
+  },
+  "favicon": {
+    "light": "/images/logo-100_100-2.png",
+    "dark": "/images/logo-100_100.png"
   }
 }
