@@ -175,7 +175,12 @@
                 "pages": [
                   {
                     "group": "YumiProxy与指纹浏览的集成",
-                    "pages": []
+                    "pages": [
+                      "untitled-page-22",
+                      "untitled-page-23",
+                      "untitled-page-24",
+                      "untitled-page-25"
+                    ]
                   },
                   {
                     "group": "YumiProxy与浏览器拓展的集成",
