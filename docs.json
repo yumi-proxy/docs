@@ -59,8 +59,14 @@
                 "group": "YumiProxy Integration",
                 "pages": [
                   {
-                    "group": "Anti-Detect Browser",
-                    "pages": []
+                    "group": "Anti-Detect Browser Proxy Integration Guide",
+                    "pages": [
+                      "untitled-page-27",
+                      "untitled-page-28",
+                      "untitled-page-29",
+                      "untitled-page-30",
+                      "untitled-page-31"
+                    ]
                   },
                   {
                     "group": "Browsers & Extensions Proxy Integration Guide",
