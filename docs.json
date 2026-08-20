@@ -64,7 +64,9 @@
                   },
                   {
                     "group": "Browsers & Extensions",
-                    "pages": []
+                    "pages": [
+                      "untitled-page-12"
+                    ]
                   },
                   {
                     "group": "Operating Systems",
@@ -180,7 +182,9 @@
                     "group": "YumiProxy与操作系统的集成",
                     "pages": [
                       "untitled-page-9",
-                      "untitled-page-8"
+                      "untitled-page-8",
+                      "untitled-page-10",
+                      "untitled-page-11"
                     ]
                   }
                 ]
