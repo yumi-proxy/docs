@@ -140,6 +140,21 @@
                   "yumi-proxy-4",
                   "yumi-proxy-5"
                 ]
+              },
+              {
+                "group": "YumiProxy的集成",
+                "pages": [
+                  {
+                    "group": "YumiProxy与指纹浏览的集成",
+                    "pages": []
+                  },
+                  {
+                    "group": "YumiProxy与浏览器拓展的集成",
+                    "pages": [
+                      "untitled-page-2"
+                    ]
+                  }
+                ]
               }
             ]
           },
