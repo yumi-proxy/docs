@@ -54,6 +54,23 @@
                   "yumi-proxy-static-residential-proxies-parameter",
                   "yumi-proxy-how-to-recharge-on-the-official-website-wallet"
                 ]
+              },
+              {
+                "group": "YumiProxy Integration",
+                "pages": [
+                  {
+                    "group": "Anti-Detect Browser",
+                    "pages": []
+                  },
+                  {
+                    "group": "Browsers & Extensions",
+                    "pages": []
+                  },
+                  {
+                    "group": "Operating Systems",
+                    "pages": []
+                  }
+                ]
               }
             ]
           },
@@ -153,6 +170,10 @@
                     "pages": [
                       "untitled-page-2"
                     ]
+                  },
+                  {
+                    "group": "YumiProxy与操作系统的集成",
+                    "pages": []
                   }
                 ]
               }
