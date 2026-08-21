@@ -1,0 +1,42 @@
+---
+title: "C# "
+---
+
+**本文档说明如何使用 C# 和 .NET 内置的** `HttpClient `**与** `WebProxy`**，通过 YumiProxy 代理服务发起 HTTPS 请求，并获取** `ipinfo.io `**的响应数据。**
+
+```csharp YumiProxyDemo.cs lines
+using System;
+using System.Net;
+using System.Net.Http;
+
+// ==================== 代理配置（请替换为您的实际凭证） ====================
+var username = "YOUR_USERNAME";    // 替换为 YumiProxy 仪表板中的 username
+var password = "YOUR_PASSWORD";    // 替换为 YumiProxy 仪表板中的 password
+
+// 创建 WebProxy 实例，并设置代理服务器地址和端口
+// proxy.yumiproxy.com:9091 替换为YumiProxy仪表板中参数的 代理服务器(主机):端口
+var proxy = new WebProxy("http://proxy.yumiproxy.com:9091")
+{
+    Credentials = new NetworkCredential(username, password), // 设置认证凭据
+};
+
+// 配置 HttpClientHandler，使其使用上述代理
+var handler = new HttpClientHandler
+{
+    Proxy = proxy,
+    UseProxy = true, // 确保使用代理
+};
+
+// 创建 HttpClient，并传入 handler
+using var client = new HttpClient(handler);
+
+// 异步发送 GET 请求，获取响应字符串
+var response = await client.GetStringAsync("https://ipinfo.io/json");
+
+// 输出响应内容（JSON 格式）
+Console.WriteLine(response);
+```
+
+完成以上步骤后，您即成功实现了 YumiProxy 与您的程序的集成，为网络连接提供了更安全、更灵活的选择。
+
+**如您在使用中遇到任何问题，或有任何建议，欢迎随时与我们联系。我们非常乐意倾听您的想法，并竭诚为您提供帮助。**

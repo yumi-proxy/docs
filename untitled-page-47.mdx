@@ -1,0 +1,73 @@
+---
+title: "Node.js"
+---
+
+**本文档说明如何使用 Node.js 的** `axios `**库，通过 YumiProxy 代理服务发起 HTTPS 请求，并获取** `ipinfo.io `**的响应数据。提供两种实现方式：新版 axios（推荐） 使用** `https-proxy-agent`**，以及 旧版 axios（v0.x） 的简便写法。**
+
+### **方式一：新版 axios（v1.x\+）**
+
+```javascript yumiproxy_demo.js lines
+import axios from "axios";
+import { HttpsProxyAgent } from "https-proxy-agent";
+
+// ==================== 代理配置（请替换为您的实际凭证） ====================
+const username = "YOUR_USERNAME";    // 替换为 YumiProxy 仪表板中的 username
+const password = "YOUR_PASSWORD";    // 替换为 YumiProxy 仪表板中的 password
+const proxyHost = "proxy.yumiproxy.com";
+const proxyPort = 9091;
+
+// 构建代理 URL（格式：协议://用户名:密码@主机:端口）
+const proxyUrl = `http://${username}:${password}@${proxyHost}:${proxyPort}`;
+
+// 创建 HTTPS 代理 agent
+const agent = new HttpsProxyAgent(proxyUrl);
+
+// 发送请求，通过 httpsAgent 指定代理
+axios
+  .get("https://ipinfo.io/json", {
+    httpsAgent: agent,   // 使用代理 agent
+    timeout: 30000,      // 超时时间（毫秒）
+  })
+  .then((response) => {
+    console.log(response.data);
+  })
+  .catch((error) => {
+    console.error("请求失败:", error.message);
+  });
+```
+
+### **方式二：旧版 axios（v0.x）**
+
+```javascript yumiproxy_demo.js lines
+import axios from "axios";
+
+// ==================== 代理配置（请替换为您的实际凭证） ====================
+const username = "YOUR_USERNAME";    // 替换为 YumiProxy 仪表板中的 username
+const password = "YOUR_PASSWORD";    // 替换为 YumiProxy 仪表板中的 password
+
+// 旧版 axios（v0.x）支持直接在请求配置中使用 proxy 选项
+// ⚠️ 注意：axios v1.x+ 已移除该选项，请使用方式一（HttpsProxyAgent）
+axios
+  .get("https://ipinfo.io/json", {
+    proxy: {
+      protocol: "http",                // 代理协议（固定为 http，因为 CONNECT 隧道走 http）
+      host: "proxy.yumiproxy.com",    // 替换为仪表板中的代理服务器主机
+      port: 9091,                     // 替换为仪表板中的端口
+      auth: {
+        username: username,           // 代理认证用户名
+        password: password,           // 代理认证密码
+      },
+    },
+    timeout: 30000,                   // 超时时间（毫秒），按需调整
+  })
+  .then((response) => {
+    console.log(response.data);       // 输出响应 JSON
+  })
+  .catch((error) => {
+    console.error("请求失败:", error.message);
+  });
+```
+
+完成以上步骤后，您即成功实现了 YumiProxy 与您的程序的集成，为网络连接提供了更安全、更灵活的选择。
+
+**如您在使用中遇到任何问题，或有任何建议，欢迎随时与我们联系。我们非常乐意倾听您的想法，并竭诚为您提供帮助。**

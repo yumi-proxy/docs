@@ -1,0 +1,53 @@
+---
+title: "Go"
+---
+
+**本文档说明如何使用 Go 标准库中的** `net/http `**包，通过 YumiProxy 代理服务发起 HTTPS 请求，并获取** `ipinfo.io `**的响应数据。**
+
+```go main.go lines
+package main
+
+import (
+    "fmt"
+    "io"
+    "net/http"
+    "net/url"
+)
+
+func main() {
+    // ==================== 代理配置（请替换为您的实际凭证） ====================
+    // 构建代理 URL（格式：协议://用户名:密码@主机:端口）
+    proxyURL, _ := url.Parse("http://YOUR_USERNAME:YOUR_PASSWORD@proxy.yumiproxy.com:9091")
+    // 替换说明：
+    //   - YOUR_USERNAME  → YumiProxy 仪表板中的 username
+    //   - YOUR_PASSWORD  → YumiProxy 仪表板中的 password
+    //   - proxy.yumiproxy.com:9091 → 仪表板中的代理服务器和端口
+
+    // 创建自定义 HTTP 客户端，配置代理传输
+    client := &http.Client{
+        Transport: &http.Transport{
+            Proxy: http.ProxyURL(proxyURL),
+        },
+    }
+
+    // 发起 GET 请求
+    resp, err := client.Get("https://ipinfo.io/json")
+    if err != nil {
+        panic(err) // 生产环境请改为错误处理
+    }
+    defer resp.Body.Close()
+
+    // 读取响应体
+    body, err := io.ReadAll(resp.Body)
+    if err != nil {
+        panic(err)
+    }
+
+    // 输出 JSON 响应
+    fmt.Println(string(body))
+}
+```
+
+完成以上步骤后，您即成功实现了 YumiProxy 与您的程序的集成，为网络连接提供了更安全、更灵活的选择。
+
+**如您在使用中遇到任何问题，或有任何建议，欢迎随时与我们联系。我们非常乐意倾听您的想法，并竭诚为您提供帮助。**

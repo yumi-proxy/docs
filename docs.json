@@ -220,10 +220,14 @@
                     ]
                   },
                   {
-                    "group": "API集成",
+                    "group": "YumiProxy 无缝集成",
                     "pages": [
                       "untitled-page-42",
-                      "untitled-page-43"
+                      "untitled-page-43",
+                      "untitled-page-44",
+                      "untitled-page-45",
+                      "untitled-page-46",
+                      "untitled-page-47"
                     ]
                   }
                 ]

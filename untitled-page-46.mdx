@@ -1,0 +1,39 @@
+---
+title: "PHP"
+---
+
+**本文档说明如何使用 PHP 的 cURL 扩展，通过 YumiProxy 代理服务发起 HTTPS 请求，并获取** `ipinfo.io `**的响应数据。**
+
+```php yumiproxy_demo.php lines
+<?php
+
+// ==================== 代理配置（请替换为您的实际凭证） ====================
+$username = "YOUR_USERNAME";    // 替换为 YumiProxy 仪表板中的 username
+$password = "YOUR_PASSWORD";    // 替换为 YumiProxy 仪表板中的 password
+$proxy = "http://{$username}:{$password}@proxy.yumiproxy.com:9091";
+// 替换说明：
+//   - proxy.yumiproxy.com:9091 → 仪表板中的代理服务器和端口
+
+// 初始化 cURL 会话
+$ch = curl_init("https://ipinfo.io/json");
+
+// 设置代理
+curl_setopt($ch, CURLOPT_PROXY, $proxy);
+// 将响应结果作为字符串返回（而非直接输出）
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+// 执行请求
+$response = curl_exec($ch);
+
+// 关闭 cURL 会话
+curl_close($ch);
+
+// 输出响应 JSON
+echo $response;
+
+?>
+```
+
+完成以上步骤后，您即成功实现了 YumiProxy 与您的程序的集成，为网络连接提供了更安全、更灵活的选择。
+
+**如您在使用中遇到任何问题，或有任何建议，欢迎随时与我们联系。我们非常乐意倾听您的想法，并竭诚为您提供帮助。**
