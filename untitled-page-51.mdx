@@ -1,0 +1,53 @@
+---
+title: "Go"
+---
+
+**This document explains how to use the net/http package from the Go standard library to make HTTPS requests through the YumiProxy proxy service and retrieve response data from [ipinfo.io](http://ipinfo.io).**
+
+```go main.go lines
+package main
+
+import (
+    "fmt"
+    "io"
+    "net/http"
+    "net/url"
+)
+
+func main() {
+    // ==================== Proxy Configuration (Replace with your actual credentials) ====================
+    // Build the proxy URL (format: protocol://username:password@host:port)
+    proxyURL, _ := url.Parse("http://YOUR_USERNAME:YOUR_PASSWORD@proxy.yumiproxy.com:9091")
+    // Replacement notes:
+    //   - YOUR_USERNAME  → username from YumiProxy dashboard
+    //   - YOUR_PASSWORD  → password from YumiProxy dashboard
+    //   - proxy.yumiproxy.com:9091 → proxy server and port from the dashboard
+
+    // Create a custom HTTP client with proxy transport
+    client := &http.Client{
+        Transport: &http.Transport{
+            Proxy: http.ProxyURL(proxyURL),
+        },
+    }
+
+    // Make a GET request
+    resp, err := client.Get("https://ipinfo.io/json")
+    if err != nil {
+        panic(err) // Replace with proper error handling in production
+    }
+    defer resp.Body.Close()
+
+    // Read the response body
+    body, err := io.ReadAll(resp.Body)
+    if err != nil {
+        panic(err)
+    }
+
+    // Output the JSON response
+    fmt.Println(string(body))
+}
+```
+
+After completing the above steps, you have successfully integrated YumiProxy with your program, providing a safer and more flexible option for network connections.
+
+**If you have any questions or suggestions while using our service, please don’t hesitate to reach out. We’d love to hear your feedback and are always happy to help.**

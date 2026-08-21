@@ -1,0 +1,39 @@
+---
+title: "PHP"
+---
+
+**This document explains how to use PHP's cURL extension to make HTTPS requests through the YumiProxy proxy service and retrieve response data from [ipinfo.io](http://ipinfo.io).**
+
+```php yumiproxy_demo.php lines
+<?php
+
+// ==================== Proxy Configuration (Replace with your actual credentials) ====================
+$username = "YOUR_USERNAME";    // Replace with the username from YumiProxy dashboard
+$password = "YOUR_PASSWORD";    // Replace with the password from YumiProxy dashboard
+$proxy = "http://{$username}:{$password}@proxy.yumiproxy.com:9091";
+// Replacement notes:
+//   - proxy.yumiproxy.com:9091 → proxy server and port from the dashboard
+
+// Initialize cURL session
+$ch = curl_init("https://ipinfo.io/json");
+
+// Set proxy
+curl_setopt($ch, CURLOPT_PROXY, $proxy);
+// Return response as a string instead of outputting directly
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+// Execute the request
+$response = curl_exec($ch);
+
+// Close cURL session
+curl_close($ch);
+
+// Output the response JSON
+echo $response;
+
+?>
+```
+
+After completing the above steps, you have successfully integrated YumiProxy with your program, providing a safer and more flexible option for network connections.
+
+**If you have any questions or suggestions while using our service, please don’t hesitate to reach out. We’d love to hear your feedback and are always happy to help.**

@@ -1,0 +1,51 @@
+---
+title: "JAVA"
+---
+
+**This document explains how to use the Java standard library ([java.net](http://java.net).http) to make HTTP/HTTPS requests through the YumiProxy proxy service and retrieve response data from the target website [ipinfo.io](http://ipinfo.io).**
+
+```java YumiProxyDemo.java lines
+import java.net.Authenticator;
+import java.net.InetSocketAddress;
+import java.net.PasswordAuthentication;
+import java.net.ProxySelector;
+import java.net.URI;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
+
+public class Main {
+    public static void main(String[] args) throws Exception {
+        // ==================== Proxy Configuration (Replace with your actual credentials) ====================
+        String username = "YOUR_USERNAME";    // Replace with the username from YumiProxy dashboard
+        String password = "YOUR_PASSWORD";    // Replace with the password from YumiProxy dashboard
+        String host = "proxy.yumiproxy.com";  // Replace with the proxy server address from the dashboard
+        int port = 9091;                      // Replace with the port from the dashboard
+
+        // Create an HttpClient with proxy and authenticator
+        HttpClient client = HttpClient.newBuilder()
+            .proxy(ProxySelector.of(new InetSocketAddress(host, port)))
+            .authenticator(new Authenticator() {
+                @Override
+                protected PasswordAuthentication getPasswordAuthentication() {
+                    return new PasswordAuthentication(username, password.toCharArray());
+                }
+            })
+            .build();
+
+        // Build the GET request
+        HttpRequest request = HttpRequest.newBuilder()
+            .uri(URI.create("https://ipinfo.io/json"))
+            .build();
+
+        // Send the synchronous request and get the response as a string
+        HttpResponse<String> response = client.send(
+            request, HttpResponse.BodyHandlers.ofString());
+        System.out.println(response.body());
+    }
+}
+```
+
+After completing the above steps, you have successfully integrated YumiProxy with your program, providing a safer and more flexible option for network connections.
+
+**If you have any questions or suggestions while using our service, please don’t hesitate to reach out. We’d love to hear your feedback and are always happy to help.**

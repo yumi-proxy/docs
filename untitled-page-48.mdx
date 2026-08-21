@@ -1,0 +1,38 @@
+---
+title: "Python"
+---
+
+**This document explains how to use Python's** `requests `**library to send HTTP/HTTPS requests through YumiProxy's proxy service and retrieve response data from the target website** `ipinfo.io`**.**
+
+```python
+import requests  # Import the requests library for sending HTTP requests
+
+# ==================== Proxy Configuration (Replace with your actual credentials) ====================
+username = "YOUR_USERNAME"  # Replace with the username parameter from YumiProxy dashboard
+password = "YOUR_PASSWORD"  # Replace with the password parameter from YumiProxy dashboard
+
+# Build the proxy URL with authentication (format: protocol://username:password@proxy_server:port)
+# Replace proxy.yumiproxy.com:9091 with the proxy server (host) and port from YumiProxy dashboard
+proxy = f"http://{username}:{password}@proxy.yumiproxy.com:9091"
+
+# Define the proxies dictionary, specifying the same proxy for both HTTP and HTTPS protocols
+proxies = {
+    "http": proxy,   # HTTP requests go through the proxy
+    "https": proxy,  # HTTPS requests go through the proxy
+}
+
+# ==================== Make Request and Handle Response ====================
+# Access ipinfo.io JSON endpoint via the proxy to get the outgoing IP and geolocation info
+response = requests.get(
+    "https://ipinfo.io/json",   # Target URL
+    proxies=proxies,            # Pass the proxy configuration
+    timeout=30                  # Timeout in seconds to prevent hanging
+)
+
+# Print the raw JSON response from the server (includes IP, city, organization, etc.)
+print(response.text)
+```
+
+After completing the above steps, you have successfully integrated YumiProxy with your program, providing a safer and more flexible option for network connections.
+
+**If you have any questions or suggestions while using our service, please don’t hesitate to reach out. We’d love to hear your feedback and are always happy to help.**

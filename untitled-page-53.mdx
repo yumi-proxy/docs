@@ -1,0 +1,73 @@
+---
+title: "Node.js"
+---
+
+**This document explains how to use the axios library in Node.js to make HTTPS requests through the YumiProxy proxy service and retrieve response data from [ipinfo.io](http://ipinfo.io). Two implementation approaches are provided: the new axios (recommended) using https-proxy-agent, and the simpler syntax for older axios (v0.x).**
+
+### **Method 1: New axios (v1.x\+)**
+
+```javascript yumiproxy_demo.js lines
+import axios from "axios";
+import { HttpsProxyAgent } from "https-proxy-agent";
+
+// ==================== Proxy Configuration (Replace with your actual credentials) ====================
+const username = "YOUR_USERNAME";    // Replace with the username from YumiProxy dashboard
+const password = "YOUR_PASSWORD";    // Replace with the password from YumiProxy dashboard
+const proxyHost = "proxy.yumiproxy.com";
+const proxyPort = 9091;
+
+// Build the proxy URL (format: protocol://username:password@host:port)
+const proxyUrl = `http://${username}:${password}@${proxyHost}:${proxyPort}`;
+
+// Create an HTTPS proxy agent
+const agent = new HttpsProxyAgent(proxyUrl);
+
+// Send the request, specifying the proxy via httpsAgent
+axios
+  .get("https://ipinfo.io/json", {
+    httpsAgent: agent,   // Use the proxy agent
+    timeout: 30000,      // Timeout in milliseconds
+  })
+  .then((response) => {
+    console.log(response.data);
+  })
+  .catch((error) => {
+    console.error("Request failed:", error.message);
+  });
+```
+
+### **Method 2: Legacy axios (v0.x)**
+
+```javascript yumiproxy_demo.js lines
+import axios from "axios";
+
+// ==================== Proxy Configuration (Replace with your actual credentials) ====================
+const username = "YOUR_USERNAME";    // Replace with the username from YumiProxy dashboard
+const password = "YOUR_PASSWORD";    // Replace with the password from YumiProxy dashboard
+
+// Older axios (v0.x) supports the proxy option directly in request config
+// ⚠️ Note: axios v1.x+ has removed this option; please use the first approach (HttpsProxyAgent)
+axios
+  .get("https://ipinfo.io/json", {
+    proxy: {
+      protocol: "http",                // Proxy protocol (fixed to http because CONNECT tunnel uses http)
+      host: "proxy.yumiproxy.com",    // Replace with the proxy server host from the dashboard
+      port: 9091,                     // Replace with the port from the dashboard
+      auth: {
+        username: username,           // Proxy authentication username
+        password: password,           // Proxy authentication password
+      },
+    },
+    timeout: 30000,                   // Timeout in milliseconds; adjust as needed
+  })
+  .then((response) => {
+    console.log(response.data);       // Output response JSON
+  })
+  .catch((error) => {
+    console.error("Request failed:", error.message);
+  });
+```
+
+After completing the above steps, you have successfully integrated YumiProxy with your program, providing a safer and more flexible option for network connections.
+
+**If you have any questions or suggestions while using our service, please don’t hesitate to reach out. We’d love to hear your feedback and are always happy to help.**

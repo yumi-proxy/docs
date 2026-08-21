@@ -1,0 +1,42 @@
+---
+title: "C# "
+---
+
+**This document explains how to use C# and .NET's built-in HttpClient and WebProxy to make HTTPS requests through the YumiProxy proxy service and retrieve response data from [ipinfo.io](http://ipinfo.io).**
+
+```csharp YumiProxyDemo.cs lines
+using System;
+using System.Net;
+using System.Net.Http;
+
+// ==================== Proxy Configuration (Replace with your actual credentials) ====================
+var username = "YOUR_USERNAME";    // Replace with the username from YumiProxy dashboard
+var password = "YOUR_PASSWORD";    // Replace with the password from YumiProxy dashboard
+
+// Create a WebProxy instance and set the proxy server address and port
+// Replace proxy.yumiproxy.com:9091 with the proxy server (host) and port from YumiProxy dashboard
+var proxy = new WebProxy("http://proxy.yumiproxy.com:9091")
+{
+    Credentials = new NetworkCredential(username, password), // Set authentication credentials
+};
+
+// Configure HttpClientHandler to use the above proxy
+var handler = new HttpClientHandler
+{
+    Proxy = proxy,
+    UseProxy = true, // Ensure proxy is used
+};
+
+// Create HttpClient with the handler
+using var client = new HttpClient(handler);
+
+// Send an asynchronous GET request and retrieve the response string
+var response = await client.GetStringAsync("https://ipinfo.io/json");
+
+// Output the response content (JSON format)
+Console.WriteLine(response);
+```
+
+After completing the above steps, you have successfully integrated YumiProxy with your program, providing a safer and more flexible option for network connections.
+
+**If you have any questions or suggestions while using our service, please don’t hesitate to reach out. We’d love to hear your feedback and are always happy to help.**
