@@ -2,4 +2,50 @@
 title: "JAVA"
 ---
 
-**本文档说明如何使用 Java 标准库（**`java.net.http`**）通过 YumiProxy 代理服务发HTTP/HTTPS 请求，并获取目标网站** `ipinfo.io `**的响应数据。**
+**本文档说明如何使用 Java 标准库（**`java.net.http`**）通过 YumiProxy 代理服务发起 HTTP/HTTPS 请求，并获取目标网站** `ipinfo.io `**的响应数据。**
+
+```java YumiProxyDemo.java lines
+import java.net.Authenticator;
+import java.net.InetSocketAddress;
+import java.net.PasswordAuthentication;
+import java.net.ProxySelector;
+import java.net.URI;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
+
+public class Main {
+    public static void main(String[] args) throws Exception {
+        // ==================== 代理配置（请替换为您的实际凭证） ====================
+        String username = "YOUR_USERNAME";    // 替换为 YumiProxy 仪表板中的 username
+        String password = "YOUR_PASSWORD";    // 替换为 YumiProxy 仪表板中的 password
+        String host = "proxy.yumiproxy.com";  // 替换为仪表板中的代理服务器地址
+        int port = 9091;                      // 替换为仪表板中的端口
+
+        // 创建 HttpClient，配置代理和认证器
+        HttpClient client = HttpClient.newBuilder()
+            .proxy(ProxySelector.of(new InetSocketAddress(host, port)))
+            .authenticator(new Authenticator() {
+                @Override
+                protected PasswordAuthentication getPasswordAuthentication() {
+                    return new PasswordAuthentication(username, password.toCharArray());
+                }
+            })
+            .build();
+
+        // 构造 GET 请求
+        HttpRequest request = HttpRequest.newBuilder()
+            .uri(URI.create("https://ipinfo.io/json"))
+            .build();
+
+        // 发送同步请求并获取响应字符串
+        HttpResponse<String> response = client.send(
+            request, HttpResponse.BodyHandlers.ofString());
+        System.out.println(response.body());
+    }
+}
+```
+
+完成以上步骤后，您即成功实现了 YumiProxy 与您的程序的集成，为网络连接提供了更安全、更灵活的选择。
+
+**如您在使用中遇到任何问题，或有任何建议，欢迎随时与我们联系。我们非常乐意倾听您的想法，并竭诚为您提供帮助。**
