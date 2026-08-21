@@ -46,7 +46,7 @@ const username = "YOUR_USERNAME";    // Replace with the username from YumiProxy
 const password = "YOUR_PASSWORD";    // Replace with the password from YumiProxy dashboard
 
 // Older axios (v0.x) supports the proxy option directly in request config
-// ⚠️ Note: axios v1.x+ has removed this option; please use the first approach (HttpsProxyAgent)
+// Note: axios v1.x+ has removed this option; please use the first approach (HttpsProxyAgent)
 axios
   .get("https://ipinfo.io/json", {
     proxy: {
