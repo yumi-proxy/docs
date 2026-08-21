@@ -1,0 +1,38 @@
+---
+title: "Python"
+---
+
+**本文档说明如何使用 Python 的** `requests `**库，通过 YumiProxy 的代理服务 发起 HTTP/HTTPS 请求，并获取目标网站**`ipinfo.io`**的响应数据。**
+
+```python
+import requests  # 导入 requests 库，用于发送 HTTP 请求
+
+# ==================== 代理配置（请替换为您的实际凭据） ====================
+username = "YOUR_USERNAME"  # 替换为YumiProxy仪表板中参数的usernam
+password = "YOUR_PASSWORD"  # 替换为YumiProxy仪表板中参数的password
+
+# 构建带身份认证的代理 URL（格式：协议://用户名:密码@代理服务器:端口）
+# proxy.yumiproxy.com:9091 替换为YumiProxy仪表板中参数的 代理服务器(主机):端口
+proxy = f"http://{username}:{password}@proxy.yumiproxy.com:9091"
+
+# 定义 proxies 字典，分别指定 HTTP 和 HTTPS 协议使用同一代理
+proxies = {
+    "http": proxy,   # HTTP 请求走代理
+    "https": proxy,  # HTTPS 请求走代理
+}
+
+# ==================== 发起请求并处理响应 ====================
+# 通过代理访问 ipinfo.io 的 JSON 接口，获取当前出口 IP 及地理位置信息
+response = requests.get(
+    "https://ipinfo.io/json",   # 目标 URL
+    proxies=proxies,            # 传入代理配置
+    timeout=30                  # 超时时间（秒），防止请求卡死
+)
+
+# 打印服务器返回的原始 JSON 文本（包含 IP、城市、组织等信息）
+print(response.text)
+```
+
+完成以上步骤后，您即成功实现了 YumiProxy 与您的程序的集成，为网络连接提供了更安全、更灵活的选择。
+
+**如您在使用中遇到任何问题，或有任何建议，欢迎随时与我们联系。我们非常乐意倾听您的想法，并竭诚为您提供帮助。**
